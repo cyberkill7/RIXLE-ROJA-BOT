@@ -30,7 +30,7 @@ global.APIKeys = { // APIKey nya disini
 
 userbot = {
 Prem: JSON.parse(fs.readFileSync('./db/premium.json')),
- owner:  [ "62881027203521" ],
+ owner:  [ "60179842767" ],
   MONGO_URI: "mongodb+srv://zanDb:veth0581@cluster0.eyx0e.mongodb.net/<mydb>?retryWrites=true&w=majority",
    mess: {
    wait: "tunggu sedang di proses...",
@@ -64,7 +64,7 @@ Prem: JSON.parse(fs.readFileSync('./db/premium.json')),
    eror: "Sepertinya Eror",
    waits: "Sedang di proses",
    butmag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTHDLrd0_DwHnJfuZ_pRMOAbLi3-ot-NxyPA&usqp=CAU',
-   packname: "RIXLE-BOT-OFFICIAL",
+   packname: "Mikey",
    author: '@_fearTeam',
     setting: {
     admin: "only admin",
