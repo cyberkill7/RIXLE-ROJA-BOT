@@ -34,7 +34,7 @@ Prem: JSON.parse(fs.readFileSync('./db/premium.json')),
    eror: "Sepertinya Eror",
    waits: "Sedang di proses",
    butmag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTHDLrd0_DwHnJfuZ_pRMOAbLi3-ot-NxyPA&usqp=CAU',
-   packname: "RIXLE-BOT-V3",
+   packname: "Mikey",
    author: 'Arifi Razzaq',
     setting: {
     admin: "only admin",
