@@ -2,28 +2,26 @@
 const fs = require("fs")
 const qrcode = require("qrcode")
 const cp = require('child_process')
-const Baileys = "@adiwajshing/baileys";
-const { WAConnection: _WAConnection } = require("@adiwajshing/baileys");
-const WAConnection = require('./Lib/simple').WAConnection(_WAConnection);
+const { makeWASocket, DisconnectReason, useMultiFileAuthState, MessageType } = require("@whiskeysockets/baileys");
 const { Functions } = require('./Lib/Functions');
 const { start } = require('./Lib/banner');
 const { JsonDB } = require("node-json-db")
 const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
 
 global['write'] = {};
- global['write']['words'] = JSON.parse(fs.readFileSync('./tmp/debug.json')); // Biar Bingung Orang Awam, dan Susah Recode :v
-  global.antidelete = false
-   global.welcome = true
-    global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
-     global.Ft = new Functions(); // Menghubungkan dari Function.js
-      global.mediaType = require(Baileys).MessageType //Biar keren hehe
-       global.conn = new WAConnection(); //Wa Connect dari baileys
-        global.botuser = require('./src/config') //Menghubungkan Ke Connection string
-         global.Events = {}
-          global.baileys = Baileys //Hehe
-           global.db = new JsonDB(new Config("database", true, false, '/'));
-            global.Public = false
-             global.scrap = require("./Lib/scrape");
+global['write']['words'] = JSON.parse(fs.readFileSync('./tmp/debug.json')); // Biar Bingung Orang Awam, dan Susah Recode :v
+global.antidelete = false
+global.welcome = true
+global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
+global.Ft = new Functions(); // Menghubungkan dari Function.js
+global.mediaType = MessageType //Biar keren hehe
+global.botuser = require('./src/config') //Menghubungkan Ke Connection string
+global.userbot = require('./config') //Menghubungkan Ke config utama
+global.Events = {}
+global.baileys = "@whiskeysockets/baileys" //Hehe
+global.db = new JsonDB(new Config("database", true, false, '/'));
+global.Public = false
+global.scrap = require("./Lib/scrape");
 //msgTyp
 global.text = mediaType.text
 global.image = mediaType.image
@@ -32,6 +30,13 @@ global.audio = mediaType.audio
 global.location = mediaType.location
 global.document = mediaType.document
 
+// Create connection
+const { state, saveCreds } = useMultiFileAuthState('session')
+global.conn = makeWASocket({
+    auth: state,
+    printQRInTerminal: true,
+    logger: console
+})
 
 async function _quickTest() {
   let test = await Promise.all([
@@ -62,7 +67,7 @@ let [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm] = test
     magick,
     gm
   }
-  require('../../Lib/sticker').support = s
+  require('./Lib/sticker').support = s
   Object.freeze(global.support)
 
   if (!s.ffmpeg) conn.logger.warn('Silakan instal ffmpeg untuk mengirim video (pkg install ffmpeg)')
@@ -74,54 +79,40 @@ _quickTest()
   .then(() => conn.logger.info('Quick Test Done'))
   .catch(console.error)
 
-conn.version = [ 2, 2140, 12 ]
-conn.logger.level = "warn"
-conn.browserDescription = ['Rixle Type 3', 'SAFARI', '8.1']
-
-// Mengurangi logger mempercepat Balas Pesan Fixed @arifirazzaq2001
-if (fs.existsSync(global.write.words.qrcode)) conn.loadAuthInfo(global.write.words.qrcode)
-conn.on('qr', qr => {
- conn.logger.warn(botuser.simple.expiredQr)
-  })
-   conn.on('credentials-updated', () => {})
-    conn.on('connecting', () => {})
-     conn.on("open", () => {
-      conn.on("ws-close", () => {})
-       conn.on("close", () => {}) 
-const authInfo = conn.base64EncodedAuthInfo() 
-fs.writeFileSync(global.write.words.qrcode, JSON.stringify(authInfo, null, '\t'))
-
-console.clear()
-conn.logger.warn(botuser.simple.refresh)
-start('\n',
-    conn.logger.warn('\n')
-  )
+// Handle connection updates
+conn.ev.on('connection.update', async (update) => {
+    const { connection, lastDisconnect } = update
+    if(connection === 'close') {
+        const shouldReconnect = (lastDisconnect?.error)?.output?.statusCode !== DisconnectReason.loggedOut
+        console.log('connection closed due to ', lastDisconnect?.error, ', reconnecting ', shouldReconnect, '\n')
+        if(shouldReconnect) {
+            // Reconnect logic here if needed
+        }
+    } else if(connection === 'open') {
+        console.log('opened connection')
+        console.clear()
+        start('\n', console.log('\n'))
+    }
 })
-// Called when WA sends chats, this can take up to a few minutes if you have thousands of chats!
-    conn.on('chats-received', async ({ hasNewChats }) => {
-        console.log(`‣ You have ${conn.chats.length} chats, new chats available: ${hasNewChats}`);
 
-        const unread = await conn.loadAllUnreadMessages ();
-        console.log ("‣ You have " + unread.length + " unread messages");
-    });
-
-    // Called when WA sends chats, this can take up to a few minutes if you have thousands of contacts!
-        conn.on('contacts-received', () => {
-        console.log('‣ You have ' + Object.keys(conn.contacts).length + ' contacts');
-    });
+// Handle messages
+conn.ev.on('messages.upsert', async (m) => {
+    // Handle incoming messages here
+    console.log('New message received')
+})
 
 setInterval(() => {
  conn.setStatus(`PREFIX: ${userbot.prefix} | BOT AKTIF: ${Ft.count(process.uptime())} | 𝐑𝐨𝐚𝐝 𝐓𝐨 𝟑𝟎 𝐉𝐮𝐳 🍂 | 𝐏𝐞𝐣𝐮𝐚𝐧𝐠 𝐒𝐡𝐨𝐥𝐚𝐰𝐚𝐭 | Listening Youtube🎧`).catch((_) => _)
 },1000)
- require('./src/loader');
 
- async function run() {// Function biar bisa run bot
+require('./src/loader');
+
+async function run() {// Function biar bisa run bot
  let message = require('./action/chats');
  let action = require('./action/action');
- await conn.connect();
- conn.message = message.msg
- conn.on('chat-update', conn.message);
- conn.on('group-participants-update', action.groupUpdate); // ivan tolol
- }
- Ft.action()
- run();// Menjalankan Bot
+ // conn.message = message.msg
+ // conn.on('chat-update', conn.message);
+ // conn.on('group-participants-update', action.groupUpdate); // ivan tolol
+}
+Ft.action()
+run();// Menjalankan Bot

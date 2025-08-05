@@ -1,7 +1,7 @@
 
 		
 let fetch = require("node-fetch");
-const { MessageType } = require("@adiwajshing/baileys");
+const { MessageType } = require("@whiskeysockets/baileys");
 const { createSticker, StickerTypes } = require("wa-sticker-formatter");
 module.exports = {
 name: ["kiss"],

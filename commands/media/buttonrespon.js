@@ -1,4 +1,4 @@
-const { MessageType, newMessagesDB } = require("@adiwajshing/baileys")
+const { MessageType, newMessagesDB } = require("@whiskeysockets/baileys")
 //const util = require('util')
 
 module.exports = {

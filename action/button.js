@@ -1,4 +1,4 @@
-const { MessageType }= require('@adiwajshing/baileys'),
+const { MessageType }= require('@whiskeysockets/baileys'),
       { contactsArray } = MessageType,
       fs = Ft.fs,
       { servers, yta, ytv } = require("../Lib/y2mate.js"),

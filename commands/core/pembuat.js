@@ -1,4 +1,4 @@
-let { MessageType }= require('@adiwajshing/baileys')
+let { MessageType }= require('@whiskeysockets/baileys')
 let { contactsArray } = MessageType
 
 module.exports = {

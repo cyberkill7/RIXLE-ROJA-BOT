@@ -1,4 +1,4 @@
-const { MessageType } = require('@adiwajshing/baileys')
+const { MessageType } = require('@whiskeysockets/baileys')
 const { sticker } = require('../../Lib/sticker-formatter')
 module.exports = {
     name: ["stc"],
