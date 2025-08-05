@@ -1,4 +1,4 @@
-// const { JSDOM } = require('jsdom') // Disabled due to build issues
+const { JSDOM } = require('jsdom')
 const { fromBuffer } = require('file-type')
 const fetch = require('axios')
 const fs = require('fs')
