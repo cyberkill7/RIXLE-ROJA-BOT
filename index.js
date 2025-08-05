@@ -31,9 +31,13 @@ global.location = 'location'
 global.document = 'document'
 
 // Create connection
-const { state, saveCreds } = useMultiFileAuthState('session')
 global.conn = makeWASocket({
-    auth: state
+    version: [2, 2323, 4],
+    browser: ['Rixle Bot', 'Chrome', '1.0.0'],
+    auth: {
+        creds: {},
+        keys: {}
+    }
 })
 
 async function _quickTest() {

@@ -6,14 +6,7 @@ type: ["create"],
 description: "create sticker with simple module",
 utilisation: "#stc (reply)",
 async execute(m) {
-        let { conn } = data
-        let stiker = false
-        let q = m.quoted ? m.quoted : m
-          let img = await q.download()
-          if (!img) return m.reply(`balas stiker dengan perintah ${userbot.prefix}stc`)
-           stiker = await sticker(img, null, { name: userbot.packname, author: userbot.author, crop: true })
-          if (stiker) await conn.sendMessage(m.chat, stiker, MessageType.sticker, {
-            quoted: m
-          })
-        }
+  // Sticker command temporarily disabled due to sharp dependency issues
+  return m.reply('Sticker command is temporarily disabled due to dependency issues')
+}
       }
