@@ -1,7 +1,7 @@
 let { MessageType, mentionedJid } = require("@whiskeysockets/baileys")
 let fetch = Ft.fetch
 const Canvas = require("discord-canvas")
-const uploadImage = require('../../Lib/uploadImage')
+const uploadImage = require('../Lib/uploadImage')
 
 
 module.exports = {

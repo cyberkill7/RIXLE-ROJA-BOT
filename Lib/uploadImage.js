@@ -1,25 +1,18 @@
-const fetch = require('axios')
-const FormData = require('form-data')
 const { fromBuffer } = require('file-type')
+const fetch = require('axios')
 
-/**
- * Upload image to telegra.ph
- * Supported mimetype:
- * - `image/jpeg`
- * - `image/jpg`
- * - `image/png`s
- * @param {Buffer} buffer Image Buffer
- */;
-module.exports = async buffer => {
+async function uploadImage(buffer) {
   const { ext } = await fromBuffer(buffer)
-  let form = new FormData
+  const form = new FormData()
   form.append('file', buffer, 'tmp.' + ext)
-  let res = await fetch('https://telegra.ph/upload', {
+  const res = await fetch('https://telegra.ph/upload', {
     method: 'POST',
     body: form
   })
-  let img = await res.json()
+  const img = await res.json()
   if (img.error) throw img.error
   return 'https://telegra.ph' + img[0].src
 }
+
+module.exports = { uploadImage }
 
