@@ -1,7 +1,7 @@
 const speed = global.Ft['speed']
 const os = global.Ft['os']
-const fetch = require('node-fetch')
-
+const fetch = require('axios')
+;
 module.exports = {
 name: ["stats", "runtime", "speed", "runtime"],
 type: ['default'],

@@ -1,7 +1,7 @@
 const package = require('../../package.json')
-      fetch = require('node-fetch')
+      fetch = require('axios')
       changelog = require('../../changelog.json')
-
+;
 module.exports = {
 name: ["changelog"],
 type: ["default"],

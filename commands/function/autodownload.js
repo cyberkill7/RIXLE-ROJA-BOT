@@ -1,8 +1,8 @@
 const { servers, yta, ytv } = require('../../Lib/y2mate')
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const { tiktok } = require("../../Lib/scrape.js")
 const { fbdl } = require('../../Lib/fbdl')
-
+;
 module.exports = { 
 name: "autodownload", 
 async functions(m) {

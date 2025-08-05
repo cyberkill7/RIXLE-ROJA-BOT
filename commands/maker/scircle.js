@@ -1,7 +1,7 @@
 const fs = Ft.fs
-const fetch = require("node-fetch")
+const fetch = require('axios')
 var { Canvas } = require("canvacord")
-
+;
 module.exports = {
 name: ["scircle"],
 type: ["maker"],

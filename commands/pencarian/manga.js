@@ -1,4 +1,4 @@
-const fetch = require("node-fetch")
+const fetch = require('axios');
 module.exports = {
 name: ["manga"],
 type: ["searching"],

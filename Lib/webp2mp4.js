@@ -1,6 +1,6 @@
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const FormData = require('form-data')
-const { JSDOM } = require('jsdom')
+const { JSDOM } = // require('jsdom') // Disabled due to build issues
 
 async function webp2mp4(source) {
   let form = new FormData

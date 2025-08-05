@@ -1,6 +1,6 @@
-const fetch = require("node-fetch")
+const fetch = require('axios')
 let util = Ft.util
-
+;
 module.exports = {
 name: ["bc"],
 type: ["owner"],

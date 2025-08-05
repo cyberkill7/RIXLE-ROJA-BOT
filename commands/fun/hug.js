@@ -1,4 +1,4 @@
-let fetch = require("node-fetch");
+let fetch = require('axios');
 module.exports = {
 name: ["hug"],
 type: ["fun"],

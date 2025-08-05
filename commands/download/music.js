@@ -2,8 +2,8 @@ const fs = Ft.fs
 
 let yts = require('yt-search')
 let axios = require('axios')
-let fetch = require('node-fetch')
-
+let fetch = require('axios')
+;
 module.exports = {
 
 name: "music2",

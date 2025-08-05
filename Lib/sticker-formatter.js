@@ -1,4 +1,4 @@
-const {default: fetch} = require("node-fetch")
+const {default: fetch} = require('axios')
 const { toUrl } = require("./toUrl")
 /**
  * Meta Data Exif
@@ -29,7 +29,7 @@ async function sticker(buffer, url = false, metadata) {
     return data
 }
 // upcoming 
-
+;
 module.exports = {
     sticker,
 

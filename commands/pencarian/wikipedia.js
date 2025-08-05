@@ -1,5 +1,5 @@
 let axios = require("axios")
-let fetch = require("node-fetch")
+let fetch = require('axios')
 let cheerio = require("cheerio")
 
 async function wikipedia(querry) {
@@ -33,7 +33,7 @@ async function wikipedia(querry) {
   }
 }
 // BY RIZKY ADI
-
+;
 module.exports = {
 
 name: ["wiki"],

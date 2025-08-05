@@ -1,6 +1,6 @@
 const fs = require('fs')
 const { exec } = require('child_process')
-const fetch = require('node-fetch')
+const fetch = require('axios');
 module.exports = {
 name: ["blown"],
 type: ["audio"],

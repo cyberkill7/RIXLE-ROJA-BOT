@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const axios = require('axios')
 const cfonts = require('cfonts')
 const spin = require('spinnies')
@@ -309,5 +309,5 @@ const spinner = {
                 });
 
 
-
+;
 module.exports = { getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, start, info, success, banner, close }

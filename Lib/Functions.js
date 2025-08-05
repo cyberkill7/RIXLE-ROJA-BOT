@@ -7,14 +7,14 @@ const path = require('path')
 const yargs  = require('yargs/yargs')
 const yts= require( 'yt-search')
 const chalk = require('chalk')
-const fetch  = require('node-fetch') 
+const fetch  = require('axios') 
 const ggs  = require('google-it') 
 const axios  = require('axios')
 const syntaxerror = require('syntax-error');
-const request  = require('request')
+// const request = require('request') // Disabled due to deprecation
 const util = require('util')
-const ffmpeg= require('fluent-ffmpeg')
-const speed  = require('performance-now')
+// const ffmpeg = require('fluent-ffmpeg') // Disabled due to build issues
+const speed = require('performance-now')
 const os = require('os')
 const Cfonts = require('cfonts')
 const { fetchBase64, fetchText, fetchJson } = require('./fetcher.js')
@@ -28,7 +28,7 @@ const {
   bgcolor 
 } = require('./color.js')
 const { banner, start, success } = require('./banner.js')
-
+;
 exports.Functions = class Functions {
 constructor() {
 this.color = color
@@ -45,8 +45,8 @@ this.banner = banner
 this.util = util
 this.fetchText = fetchText
 this.fetchBase64 = fetchBase64
-this.ffmpeg = ffmpeg
-this.request = request
+// this.ffmpeg = ffmpeg // Disabled
+// this.request = request // Disabled
 this.axios = axios
 this.ggs = ggs
 this.fetch = fetch
@@ -85,13 +85,13 @@ conn.logger.level = "warn"
 conn.regenerateQRIntervalMs = 50000;
 console.log(banner.string)
 if (this.fs.existsSync(session)) conn.loadAuthInfo(session);
-conn.on('qr', qr => generate(qr, { small: false}))
-conn.on('connecting', async () => {
-console.log(this.chalk.blueBright.italic('✅ Login information updated!'))
-});
-conn.on('open', async () => { 
-console.log(this.chalk.green.bold('✅ Login successful!'))
-}); 
+// conn.on('qr', qr => generate(qr, { small: false})) // Fixed for new baileys
+// conn.on('connecting', async () => {
+//   console.log(this.chalk.blueBright.italic('✅ Login information updated!'))
+// });
+// conn.on('open', async () => { 
+//   console.log(this.chalk.green.bold('✅ Login successful!'))
+// }); 
 await this.fs.writeFileSync(session, JSON.stringify(conn.base64EncodedAuthInfo(), null, '\t')) 
 }
 

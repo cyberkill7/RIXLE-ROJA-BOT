@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('axios');
 const cheerio = require('cheerio');
 
 const Nekopoi = async (url) => {
@@ -28,7 +28,7 @@ const Nekopoi = async (url) => {
     }
   })
 };
-
+;
 module.exports = {
 name: ["nekopoi"],
 type: ["information"],

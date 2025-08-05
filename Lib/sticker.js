@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const crypto = require('crypto')
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const { ffmpeg } = require('./converter')
 const { spawn } = require('child_process')
 const uploadFile = require('./uploadFile')
@@ -146,7 +146,7 @@ async function addExif(webpSticker, packname, author, categories = [''], extra =
   img.exif = exif
   return await img.saveBuffer()
 }
-
+;
 module.exports = {
   /**
    * Image/Video to Sticker

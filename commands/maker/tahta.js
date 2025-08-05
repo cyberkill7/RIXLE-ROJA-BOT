@@ -1,8 +1,8 @@
 let fs = require('fs')
-const fetch = require("node-fetch")
+const fetch = require('axios')
 let { spawn } = require('child_process')
 const { unlinkSync } = require('fs')
-
+;
 module.exports = {
 name: ["tahta"],
 type: ["maker"],

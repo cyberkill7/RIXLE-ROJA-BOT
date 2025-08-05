@@ -1,6 +1,6 @@
 const fs = Ft.fs
-const fetch = require('node-fetch')
-
+const fetch = require('axios')
+;
 module.exports = {
 
 name: ["nuliskanan"],

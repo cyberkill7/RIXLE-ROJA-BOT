@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const FormData = require('form-data')
 const { fromBuffer } = require('file-type')
 
@@ -9,7 +9,7 @@ const { fromBuffer } = require('file-type')
  * - `image/jpg`
  * - `image/png`s
  * @param {Buffer} buffer Image Buffer
- */
+ */;
 module.exports = async buffer => {
   const { ext } = await fromBuffer(buffer)
   let form = new FormData

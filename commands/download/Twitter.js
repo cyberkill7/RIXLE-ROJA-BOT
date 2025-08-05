@@ -1,5 +1,5 @@
-const fetch = require('node-fetch')
-
+const fetch = require('axios')
+;
 module.exports = {
 name: ["twitter"],
 type: ["download"],

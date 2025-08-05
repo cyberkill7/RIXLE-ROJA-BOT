@@ -3,12 +3,12 @@ const util = require('util')
 const path = require('path')
 const request = require('request')
 const FileType = require('file-type')
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const PhoneNumber = require('awesome-phonenumber')
 const { MessageType, WAMessageProto, makeWASocket } = require('@whiskeysockets/baileys')
 const { toAudio, toPTT, toVideo } = require('./converter')
 const { option } = require('yargs')
-
+;
 exports.WAConnection = _WAConnection => {
   class WAConnection extends _WAConnection {
     constructor(...args) {
@@ -624,7 +624,7 @@ async sendButImg(jid, buffer, content, footer, button1, row1, quoted, options = 
  * @param {WAConnection} conn
  * @param {Object} m
  * @param {Boolean} hasParent
- */
+ */;
 exports.smsg = (conn, m, hasParent) => {
   if (!m) return m
   let M = WAMessageProto.WebMessageInfo
@@ -755,7 +755,7 @@ exports.smsg = (conn, m, hasParent) => {
   }
   return m
 }
-
+;
 exports.logic = (check, inp, out) => {
   if (inp.length !== out.length) throw new Error('Input and Output must have same length')
   for (let i in inp) if (util.isDeepStrictEqual(check, inp[i])) return out[i]

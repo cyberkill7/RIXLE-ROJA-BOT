@@ -1,5 +1,5 @@
-let fetch = require('node-fetch')
-let { JSDOM } = require('jsdom')
+let fetch = require('axios')
+let { JSDOM } = // require('jsdom') // Disabled due to build issues
 
 function post(url, formdata) {
   return fetch(url, {
@@ -72,7 +72,7 @@ async function yt(url, quality, type, bitrate, server = 'en68') {
     filesize: KB
   }
 }
-
+;
 module.exports = {
   yt,
   ytIdRegex,

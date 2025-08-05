@@ -1,7 +1,7 @@
 const fs = Ft.fs
 let limit = 30
 const { servers, yta } = require('../../Lib/y2mate')
-const fetch = require('node-fetch')
+const fetch = require('axios');
 module.exports = {
 name: ["ytmp3"],
 type: ["download"],

@@ -1,6 +1,6 @@
 
 		
-let fetch = require("node-fetch");
+let fetch = require('axios');
 const { MessageType } = require("@whiskeysockets/baileys");
 const { createSticker, StickerTypes } = require("wa-sticker-formatter");
 module.exports = {

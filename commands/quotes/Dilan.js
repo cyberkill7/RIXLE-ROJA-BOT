@@ -1,6 +1,6 @@
-const kntl = require("node-fetch")
+const kntl = require('axios')
 const fs = Ft.fs
-
+;
 module.exports = {
 
 name: ["dilan"],

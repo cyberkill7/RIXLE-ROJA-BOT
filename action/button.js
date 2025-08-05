@@ -2,7 +2,7 @@ const { MessageType }= require('@whiskeysockets/baileys'),
       { contactsArray } = MessageType,
       fs = Ft.fs,
       { servers, yta, ytv } = require("../Lib/y2mate.js"),
-      fetch = require('node-fetch'),
+      fetch = require('axios'),
       tags = {},
       speed = global.Ft['speed'],
       os = global.Ft['os'],
@@ -10,7 +10,7 @@ const { MessageType }= require('@whiskeysockets/baileys'),
       { tiktokmusic } = require("../../Lib/scrape")
       package = require('../../package.json')
       changelog = require('../../changelog.json')
-
+;
 module.exports = {
 async execute(m, {button, args, text }) {
 let { conn } = data

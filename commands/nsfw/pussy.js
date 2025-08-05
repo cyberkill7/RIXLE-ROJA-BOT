@@ -1,4 +1,4 @@
-const f = require("node-fetch")
+const f = require('axios');
 module.exports = {
 
 name: ["pussy"],

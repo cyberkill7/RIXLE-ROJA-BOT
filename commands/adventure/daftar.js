@@ -1,8 +1,8 @@
 const fs = require ('fs') 
 const crypto = require('crypto')
 const request = require('request')
-const fetch = require('node-fetch')
-
+const fetch = require('axios')
+;
 module.exports = { // By @arifirazzaq2001
 name: ["daftar"],
 type: ["Petualangan"], 

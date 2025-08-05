@@ -1,6 +1,6 @@
 //external modules
-const { JSDOM } = require('jsdom')
-const fetch = require('node-fetch')
+const { JSDOM } = // require('jsdom') // Disabled due to build issues
+const fetch = require('axios')
 const FormData = require('form-data')
 const axios = require("axios")
 const cheerio = require("cheerio")
@@ -192,9 +192,9 @@ function formatDate(n, locale = 'id') {
     minute: 'numeric',
     second: 'numeric'
   })
-}
-module.exports.yta = yta
-module.exports.ytv = ytv
-module.exports.igdl = igdl
-module.exports.upload = upload
+};
+module.exports.yta = yta;
+module.exports.ytv = ytv;
+module.exports.igdl = igdl;
+module.exports.upload = upload;
 module.exports.formatDate = formatDate

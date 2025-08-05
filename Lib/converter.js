@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const fetch = require("node-fetch")
+const fetch = require('axios')
 const request = require("request")
 const { spawn, exec } = require('child_process')
 
@@ -126,7 +126,7 @@ function stickUrl(url){
       })
 })
 }
-
+;
 module.exports = {
   toAudio,
   toPTT,

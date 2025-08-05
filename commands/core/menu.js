@@ -1,9 +1,9 @@
-const fetch = require('node-fetch')
+const fetch = require('axios')
       speed = global.Ft['speed']
       os = global.Ft['os']
       fs = Ft.fs,
       moment = require('moment-timezone')
-
+;
 module.exports = {
 name: ["menu"],
 type: ["default"],

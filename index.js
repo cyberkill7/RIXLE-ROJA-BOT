@@ -22,20 +22,18 @@ global.baileys = "@whiskeysockets/baileys" //Hehe
 global.db = new JsonDB(new Config("database", true, false, '/'));
 global.Public = false
 global.scrap = require("./Lib/scrape");
-//msgTyp
-global.text = mediaType.text
-global.image = mediaType.image
-global.video = mediaType.video
-global.audio = mediaType.audio
-global.location = mediaType.location
-global.document = mediaType.document
+//msgTyp - Using string constants for message types
+global.text = 'text'
+global.image = 'image'
+global.video = 'video'
+global.audio = 'audio'
+global.location = 'location'
+global.document = 'document'
 
 // Create connection
 const { state, saveCreds } = useMultiFileAuthState('session')
 global.conn = makeWASocket({
-    auth: state,
-    printQRInTerminal: true,
-    logger: console
+    auth: state
 })
 
 async function _quickTest() {

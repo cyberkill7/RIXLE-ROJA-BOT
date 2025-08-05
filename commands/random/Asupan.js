@@ -1,5 +1,5 @@
-let fetch = require('node-fetch')
-
+let fetch = require('axios')
+;
 module.exports = {
 name: ["asupan"],
 type: ["random"],

@@ -3,8 +3,8 @@
 const util = require("util")
 const path = require ("path")
 const Jimp = require("jimp")
-const request = require("request-promise")
-
+const request = require('axios')
+;
 module.exports = {
 name: ["covid"],
 description: "melihat informasi covid di beberapa wilayah di dunia",

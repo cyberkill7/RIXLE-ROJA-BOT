@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const FormData = require('form-data')
 const fs = require('fs')
 const { fromBuffer } = require('file-type')
@@ -62,7 +62,7 @@ const fetchBase64 = (url, mimetype) => {
 }
 
 
-
+;
 module.exports = {
     fetchJson,
     fetchText,

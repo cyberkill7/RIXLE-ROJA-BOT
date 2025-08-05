@@ -1,6 +1,6 @@
-let fetch = require('node-fetch')
+let fetch = require('axios')
 let util = require('util')
-
+;
 module.exports = {
 name: ["get"],
 type: ["default"],

@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = require('axios')
 const FormData = require('form-data')
 const { fromBuffer } = require('file-type')
 
@@ -46,7 +46,7 @@ const RESTfulAPI = async inp => {
     throw json
   }
 }
-
+;
 module.exports = async function (inp) {
   let err = false
   for (let upload of [RESTfulAPI, fileIO]) {
