@@ -1,5 +1,5 @@
 
-let { MessageType, mentionedJid } = require("@adiwajshing/baileys")
+let { MessageType, mentionedJid } = require("@whiskeysockets/baileys")
 
 module.exports = {
 name: ["hidetag"],

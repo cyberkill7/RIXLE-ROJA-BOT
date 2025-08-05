@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { exec } = require('child_process')
 const { toAudio } = require('../../Lib/converter')
-const { MessageType } = require('@adiwajshing/baileys')
+const { MessageType } = require('@whiskeysockets/baileys')
 
 module.exports = {
 name: ["tomp3"],

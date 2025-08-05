@@ -1,4 +1,4 @@
-const { MessageType } = require('@adiwajshing/baileys')
+const { MessageType } = require('@whiskeysockets/baileys')
 const { sticker } = require('../../Lib/sticker')
 const { createSticker, StickerTypes } = require("wa-sticker-formatter")
 

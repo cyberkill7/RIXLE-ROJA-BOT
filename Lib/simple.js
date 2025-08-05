@@ -5,9 +5,8 @@ const request = require('request')
 const FileType = require('file-type')
 const fetch = require('node-fetch')
 const PhoneNumber = require('awesome-phonenumber')
-const { MessageType, WAMessageProto } = require('@adiwajshing/baileys')
+const { MessageType, WAMessageProto, makeWASocket } = require('@whiskeysockets/baileys')
 const { toAudio, toPTT, toVideo } = require('./converter')
-const { WAConnection } = require('@adiwajshing/baileys/lib/WAConnection/0.Base')
 const { option } = require('yargs')
 
 exports.WAConnection = _WAConnection => {

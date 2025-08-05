@@ -1,4 +1,4 @@
-let { MessageType, mentionedJid } = require("@adiwajshing/baileys")
+let { MessageType, mentionedJid } = require("@whiskeysockets/baileys")
 let fetch = Ft.fetch
 const Canvas = require("discord-canvas")
 const uploadImage = require('../../Lib/uploadImage')
